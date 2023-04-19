@@ -1,3 +1,11 @@
+
+               __                       .___             
+_____   __ ___/  |_  ____             __| _/____   ____  
+\__  \ |  |  \   __\/  _ \   ______  / __ |/  _ \_/ ___\ 
+ / __ \|  |  /|  | (  <_> ) /_____/ / /_/ (  <_> )  \___ 
+(____  /____/ |__|  \____/          \____ |\____/ \___  >
+     \/                                  \/           \/ 
+
 ## auto-doc
 auto-doc is a command-line utility that generates documentation for a code repository using OpenAI's GPT-3 language model.
 
