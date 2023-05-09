@@ -39,11 +39,11 @@ clean:
 	find . -type d -name "__pycache__" -exec rm -rf {} +
 
 
-
-# Run all tests: `make test`
-# Run unittests only: `make unittest`
-# Run doctests only: `make doctest`
-# Measure code coverage: `make coverage`
-# Check code style and syntax: `make flake8`
-# Initialize the project: `make init`
-# Clean up temporary files: `make clean`
+# To use from terminal
+# Run all tests: $ `make test`
+# Run unittests only: $ `make unittest`
+# Run doctests only: $ `make doctest`
+# Measure code coverage: $ `make coverage`
+# Check code style and syntax: $ `make flake8`
+# Initialize the project: $ `make init`
+# Clean up temporary files: $ `make clean`
