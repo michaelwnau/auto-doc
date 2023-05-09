@@ -24,7 +24,7 @@ To generate documentation for a code repository, run the auto-doc command follow
 `auto-doc /path/to/repo`
 auto-doc will preprocess the code files in the repository, send them to the GPT-3.5 or -4 model for processing, and output the generated documentation to a file or console.
 
-By default, auto-doc saves the generated documentation to a file called documentation.txt. You can customize the output file name by providing a --output option:
+By default, auto-doc saves the generated documentation to a file called `mydoc.txt`. You can customize the output file name by providing a --output option:
 
 `auto-doc /path/to/repo --output mydoc.txt`
 You can also choose to print the generated documentation to the console instead of saving it to a file by providing a --print option:
