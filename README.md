@@ -8,7 +8,7 @@
                                                                                     
 
 ## auto-doc
-auto-doc is a command-line utility that generates documentation for a code repository using OpenAI's GPT-3 language model.
+auto-doc is a command-line utility that generates documentation for a code repository using OpenAI's GPT-3.5 language model.
 
 ### Installation
 To use auto-doc, you'll need to install the openai Python package:
