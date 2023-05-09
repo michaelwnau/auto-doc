@@ -26,3 +26,10 @@ clean:
 	@echo "Cleaning up temporary files..."
 	find . -type f -name "*.pyc" -delete
 	find . -type d -name "__pycache__" -exec rm -rf {} +
+
+
+# Run all tests: `make test`
+# Run unittests only: `make unittest`
+# Run doctests only: `make doctest`
+# Initialize the project: `make init`
+# Clean up temporary files: `make clean`
