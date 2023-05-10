@@ -37,4 +37,4 @@ You can customize the preprocessing, GPT-3 model, and output functions used by a
 You can also adjust the GPT-3 model parameters by changing the values passed to the openai.Completion.create() function in the generate_text() function. For more information on the available parameters, see the OpenAI API documentation.
 
 ### License
-auto-doc is licensed under the MIT License. Feel free to use and modify it as you see fit!
+auto-doc is currently licensed under the MIT License. Feel free to use and modify it as you see fit!
