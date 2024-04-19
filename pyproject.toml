@@ -11,6 +11,7 @@ python = "^3.12"
 openai = "^1.23.2"
 pytest = "^8.1.1"
 postgres = "^4.0"
+ruff = "^0.4.1"
 
 [tool.poetry.group.dev.dependencies]
 docker = "^7.0.0"
