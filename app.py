@@ -1,3 +1,4 @@
+from typing import Type
 import logging
 import doc_util
 
@@ -8,12 +9,12 @@ def main():
     """
     try:
         doc_util.run()
-    except SpecificException as e:
+    except (
+        SpecificException,
+        AnotherSpecificException,
+        YetAnotherSpecificException,
+    ) as e:
         print(f"An error occurred: {e}")
-    except AnotherSpecificException as e:
-        print(f"Another specific error occurred: {e}")
-    except YetAnotherSpecificException as e:
-        print(f"Yet another specific error occurred: {e}")
     except Exception as e:
         logging.error(f"An error occurred: {e}")
     finally:
