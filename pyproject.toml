@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "auto-doc"
+version = "0.1.0"
+description = "Automation of codebase documentation using GPT-3.5 or GPT-4."
+authors = ["Michael Nau <michaelwnau@gmail.com>"]
+license = "Apache"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+openai = "^1.23.2"
+pytest = "^8.1.1"
+postgres = "^4.0"
+
+[tool.poetry.group.dev.dependencies]
+docker = "^7.0.0"
+makefile = "^1.1.0"
+openai = "^1.23.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
