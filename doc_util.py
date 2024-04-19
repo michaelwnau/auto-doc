@@ -1,3 +1,4 @@
+import re
 import openai
 import os
 import argparse
@@ -12,56 +13,53 @@ def generate_documentation(repo_path):
     for root, dirs, files in os.walk(repo_path):
         for file in files:
             if file.endswith(".py"):
-                with open(os.path.join(root, file), "r") as f:
-                    code_files.append(f.read())
-
-
-# preprocess code files
-preprocessed_code = preprocess_code(code_files)
-
-# generate documentation with current model
-generated_text = generate_text(preprocessed_code)
-
-# output documentation to file or print to console
-output_documentation(generated_text)
-
-
-# We also want to remove dev comments, whitespace, and other things that will expend tokens needlessly
+                code_files.append(os.path.join(root, file))
+    preprocessed_code = preprocess_code(code_files)
+    generated_text = generate_text(preprocessed_code)
+    output_documentation(generated_text)
 
 
 def preprocess_code(code_files):
     # preprocess code files
     preprocess_code = []
-    for code in code_files:
-        # remove dev comments
-        code = re.sub(r"#.*", "", code)
-        # remove whitespace
-        code = "".join(code.split())
-        preprocessed_code.append(code)
+    for file_path in code_files:
+        with open(file_path, "r") as f:
+            code = f.read()
+            # remove dev comments
+            code = re.sub(r"#.*", "", code)
+            # remove whitespace
+            code = "".join(code.split())
+            preprocess_code.append(code)
 
-    return preprocessed_code
+    return preprocess_code
 
 
 def generate_text(preprocessed_code):
-    prompt = "Please generate documentation for the following code:\n" + "\n".join(
-        preprocessed_code
-    )
-    response = openai.Completion.create(
-        engine="text-davinci-002",
-        prompt=prompt,
-        max_tokens=1024,
-        n=1,
-        stop=None,
-        temperature=0.5,
-    )
-
-    return response.choices[0].text
+    try:
+        prompt = "Please generate documentation for the following code:\n" + "\n".join(
+            preprocessed_code
+        )
+        response = openai.Completion.create(
+            engine="text-davinci-002",
+            prompt=prompt,
+            max_tokens=1024,
+            n=1,
+            stop=None,
+            temperature=0.5,
+        )
+        return response.choices[0].text
+    except Exception as e:
+        print(f"Error occurred during API call: {e}")
+        return None
 
 
 def output_documentation(generated_text):
-    # save to file
-    with open("documentation.txt", "w") as f:
-        f.write(generated_text)
+    try:
+        # save to file
+        with open("documentation.txt", "w") as f:
+            f.write(generated_text)
+    except Exception as e:
+        print(f"Error occurred while writing documentation to file: {str(e)}")
 
     # print to console
     print(generated_text)
@@ -79,6 +77,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-# generate documentation for a code repository by running a command like python doc_util.py /path/to/repo.
